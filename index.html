@@ -1,20 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.0/model-viewer.min.js"></script>
-  <style>
-    body { margin: 0; }
-    model-viewer { width: 100vw; height: 100vh; background-color: #eee; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHS AR Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+        .preview-container {
+            width: 90vw;
+            max-width: 400px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .preview-container img {
+            width: 100%;
+            display: block;
+        }
+        .ar-button {
+            margin-top: 20px;
+            padding: 12px 32px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .ar-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-<model-viewer
-  src="ehs-dashboard.png"
-  ar
-  ar-scale="fixed"
-  camera-controls
-  alt="EHS Dashboard">
-</model-viewer>
+    <div class="preview-container">
+        <img id="dashboardImg" src="ehs-dashboard.png" alt="EHS Dashboard Preview">
+    </div>
+    <button class="ar-button" id="arBtn" disabled>AR 模式（即将支持）</button>
+
+    <script>
+        // 图片加载失败提示
+        const img = document.getElementById('dashboardImg');
+        img.onerror = function() {
+            alert('图片加载失败，请检查文件是否上传成功');
+        };
+        img.onload = function() {
+            console.log('图片加载成功！');
+            // 这里可以后续接入AR功能，先确保预览正常
+        };
+    </script>
 </body>
 </html>
