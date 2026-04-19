@@ -22,7 +22,6 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            position: relative;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         model-viewer {
@@ -30,33 +29,12 @@
             height: 500px;
             display: block;
         }
-        /* 自定义AR按钮，固定在右下角，保证可点击 */
-        .custom-ar-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #007AFF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.3);
-            cursor: pointer;
-            z-index: 9999;
-            border: none;
-        }
-        .custom-ar-btn svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-        }
         .tips {
             margin-top: 20px;
             font-size: 14px;
             color: #666;
             text-align: center;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -77,15 +55,8 @@
         </model-viewer>
     </div>
 
-    <!-- 自定义的大尺寸AR按钮，固定在右下角 -->
-    <button class="custom-ar-btn" onclick="document.getElementById('dashboardModel').activateAR()">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-    </button>
-
     <div class="tips">
-        点击右下角蓝色圆形按钮进入AR模式<br>
+        点击预览图右下角的立方体图标进入AR模式<br>
         允许相机权限，对着桌面/地面即可放置报表
     </div>
 </body>
