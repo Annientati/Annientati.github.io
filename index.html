@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <title>WebAR Demo</title>
+<head>
+  <meta charset="UTF-8" />
+  <title>WebAR Test</title>
 
-    <!-- A-Frame -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
-    <!-- MindAR -->
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
+</head>
 
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-    </style>
-  </head>
+<body>
+  <a-scene
+    mindar-image="imageTargetSrc: targets.mind;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true"
+    embedded>
 
-  <body>
-    <a-scene
-      mindar-image="imageTargetSrc: target.mind;"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: true"
-      embedded
-    >
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <!-- 当识别到 target 图片时显示 -->
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane
-          src="ar.png"
-          position="0 0 0"
-          height="1"
-          width="1"
-        ></a-plane>
-      </a-entity>
-    </a-scene>
-  </body>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-image
+        src="ar.png"
+        position="0 0 0"
+        height="1"
+        width="1">
+      </a-image>
+    </a-entity>
+
+  </a-scene>
+</body>
 </html>
