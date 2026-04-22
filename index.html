@@ -5,11 +5,11 @@
   <title>WebAR Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
-  <!-- ✅ A-Frame（必须） -->
-  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <!-- ✅ A-Frame -->
+  <script src="https://aframe.io/releases/1.4.js
 
-  <!-- ✅ MindAR Image（必须，路径已验证） -->
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <!-- ✅ MindAR Image -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2r-image-aframe.prod.js
 
   <style>
     html, body {
@@ -24,26 +24,21 @@
 </head>
 
 <body>
-  <!-- ✅ AR 场景 -->
   <a-scene
-    mindar-image="imageTargetSrc: target.mind;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights: true"
+    mindar-image="imageTargetSrc: target.mind; autoStart: true;"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: true"
     embedded
   >
 
-    <!-- ✅ 摄像头（MindAR 必须） -->
+    <!-- ✅ 摄像头 -->
     <a-camera
       position="0 0 0"
       look-controls="enabled: false">
     </a-camera>
 
-    <!-- ✅ 识别到 target 后显示的 AR 内容 -->
+    <!-- ✅ 识别到 target 后显示 -->
     <a-entity mindar-image-target="targetIndex: 0">
-
-      <!-- ✅ AR 图片 -->
       <a-image
         src="ar.png"
         position="0 0 0"
